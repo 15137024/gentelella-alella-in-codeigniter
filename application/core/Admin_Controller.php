@@ -6,6 +6,7 @@ class Admin_Controller extends CI_Controller {
 	public $loginUser;
 	function __construct(){
 		parent::__construct();
+		$this->loginUser = $this->session->userdata("admin");
 	}
 
 	/**

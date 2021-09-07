@@ -17,7 +17,7 @@
     <link href="<?= BASE_URL ?>vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="<?= BASE_URL ?>vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+    
     <!-- bootstrap-progressbar -->
     <link href="<?= BASE_URL ?>vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -25,70 +25,19 @@
     <!-- bootstrap-daterangepicker -->
     <link href="<?= BASE_URL ?>vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
+
+
+    <!-- Datatables -->
+    <link href="<?= BASE_URL ?>vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+
+
     <!-- Custom Theme Style -->
-    <link href="<?= BASE_URL ?>assets_admin/css/custom.min.css" rel="stylesheet">
-  </head>
-
-  <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span><?=  $site_title ?></span></a>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-              </div>
-              <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div>
-            </div>
-            <!-- /menu profile quick info -->
-
-            <br />
-
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <?php $this->load->view("admin/template_sidebar.php");  ?>
-            </div>
-            <!-- /sidebar menu -->
-
-          </div>
-        </div>
-
-        <!-- top navigation -->
-        <div class="top_nav">
-          <?php $this->load->view("admin/template_navbar.php"); ?>
-        </div>
-        <!-- /top navigation -->
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-            <div class="">
-                <?= $main_content ?>
-            </div>
-        </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
-    </div>
-
-    <!-- jQuery -->
+    <link href="<?= BASE_URL ?>assets_admin/css/custom.css" rel="stylesheet">
     <script src="<?= BASE_URL ?>vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="<?= BASE_URL ?>vendors/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -125,9 +74,89 @@
     <!-- bootstrap-daterangepicker -->
     <script src="<?= BASE_URL ?>vendors/moment/min/moment.min.js"></script>
     <script src="<?= BASE_URL ?>vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="<?= BASE_URL ?>vendors/validator/validator.js"></script>
+
+    <script src="<?= BASE_URL ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="<?= BASE_URL ?>vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/jszip/dist/jszip.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="<?= BASE_URL ?>vendors/pdfmake/build/vfs_fonts.js"></script>
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span><?=  $site_title ?></span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="<?= BASE_URL ?>assets_admin/images/user.png" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2><?= $this->loginUser['full_name']  ?></h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <?php $this->load->view("admin/template_sidebar.php");  ?>
+            </div>
+            <!-- /sidebar menu -->
+
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <?php $this->load->view("admin/template_navbar.php"); ?>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <?= $main_content ?>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            ©2020 All Rights Reserved. <a href="<?= BASE_URL ?>"><?=  $site_title ?></a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    
 
     <!-- Custom Theme Scripts -->
-    <script src="<?= BASE_URL ?>assets_admin/js/custom.min.js"></script>
-	
+
+    <script src="<?= BASE_URL ?>assets_admin/js/custom.js"></script>
   </body>
 </html>

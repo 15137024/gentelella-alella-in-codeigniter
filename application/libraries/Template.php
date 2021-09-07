@@ -26,8 +26,8 @@ class Template extends CI_Controller {
 	public function load_admin($view , $data = NULL){
 
 		$data['main_content'] = $this->ci->load->view('admin/'.$view , $data , TRUE);
-		$data['page_title'] = 'Inventory';
-		$data['site_title'] = 'Inventory';
+		$data['page_title'] = 'Taxi Deepot CRM';
+		$data['site_title'] = 'Taxi Deepot CRM';
 		$this->ci->parser->parse('admin/template' , $data);
 	}
 }

@@ -37,17 +37,29 @@
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
+      <?php if($this->session->flashdata('error')) { ?>
+        <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <?= $this->session->flashdata('error'); ?>
+        </div>
+        <?php } ?>
+        <?php if($this->session->flashdata('success')) { ?>
+        <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <?= $this->session->flashdata('success'); ?>
+        </div>
+        <?php } ?>
 
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form name="login" id="form" method="POST" action="jahc/" novalidate>
+            <form name="login" id="form" method="POST" action="<?=  BASE_URL.'User/login'  ?>" novalidate>
               <h1>Login</h1>
               <div class="form-group item item-one">
                   <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="required" />
               </div>
               <div class="form-group item item-one">
-                  <input type="password" class="form-control" placeholder="Password" required="required" />
+                  <input type="password" class="form-control" placeholder="Password" name="password" required="required" />
               </div>
               <div>
                 <button type="submit" class="btn btn-sm btn-primary submit">Login</button>
@@ -56,10 +68,6 @@
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">New to site?
-                  <a href="#signup" class="to_register"> Create Account </a>
-                  <a class="" href="#">Lost your password?</a>
-                </p>
 
                 <div class="clearfix"></div>
                 <br />
